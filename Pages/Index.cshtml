@@ -5,15 +5,28 @@
 }
 <div class="text-center">
     <h1 class="display-4">Hello @Model.Name</h1>
-    <form method="post">
-        <label asp-for="Address.Street"></label>
-        <input asp-for="Address.Street" /><br />
-        <label asp-for="Address.Number"></label>
-        <input asp-for="Address.Number" /><br />
-        <label asp-for="Address.ZipCode"></label>
-        <input asp-for="Address.ZipCode" /><br />
-        <label asp-for="Address.City"></label>
-        <input asp-for="Address.City" /><br />
-        <button type="submit">Zatwierdź</button>
+    <span asp-validation-for="Address.Street" class="text-danger"></span>
+
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputAddress">Twoja ulubiona ulica</label>
+                <input type="text" class="form-control" id="inputAddress">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="inputNumber">Number</label>
+                <input type="number" class="form-control" id="inputNumber">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputZipCode">Zip Code</label>
+                <input type="text" class="form-control" id="inputZipCode">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Zatwierdź</button>
     </form>
 </div>
