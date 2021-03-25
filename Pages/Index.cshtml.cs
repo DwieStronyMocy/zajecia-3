@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,9 @@ namespace zajęcia_3.Pages
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                HttpContext.Session.SetString("SessionAddress",
+                JsonConvert.SerializeObject(Address));
+                return RedirectToPage("./AddressList");
             }
             return RedirectToPage("./Privacy");
         }

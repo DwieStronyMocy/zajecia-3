@@ -1,0 +1,24 @@
+﻿@page
+@model zajęcia_3.Pages.AddressModel
+@{
+    <p>Dane w zapisane w sesji</p>
+    @if (Model.Address != null)
+    {
+        <p>
+            @Html.DisplayNameFor(model => Model.Address.Street):
+        @Model.Address.Street
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => Model.Address.City):
+    @Model.Address.City
+</p>
+<p>
+    @Html.DisplayNameFor(model => Model.Address.Number):
+@Model.Address.Number
+</p>
+<p>
+    @Html.DisplayNameFor(model => Model.Address.ZipCode):
+@Model.Address.ZipCode
+</p>
+}
+}
