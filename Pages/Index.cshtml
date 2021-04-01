@@ -4,29 +4,22 @@
     ViewData["Title"] = "Home page";
 }
 <div class="text-center">
-    <h1 class="display-4">Hello @Model.Name</h1>
-    <span asp-validation-for="Address.Street" class="text-danger"></span>
+    <h1 class="display-4">Hello There!</h1>
 
-    <form>
+    <form method="post">
         <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="Street">Twoja ulubiona ulica</label>
-                <input type="text" class="form-control" id="Street">
-            </div>
-
-            <div class="form-group col-md-3">
-                <label for="inputNumber">Number</label>
-                <input type="number" class="form-control" id="inputNumber">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputZipCode">Zip Code</label>
-                <input type="text" class="form-control" id="inputZipCode">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <label asp-for="input"></label><br />
+                <input asp-for="input" /><br />
+                <span asp-validation-for="input" class="text-danger"></span><br />
+                <br />
+                @{
+                    if (Model.lastEntry.HasValue)
+                    {
+                        <span>@Model.lastEntry.Value.result</span>
+                    }
+                }
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Zatwierdź</button>
     </form>
 </div>
